@@ -1,0 +1,455 @@
+% +++
+% latex="texfot lualatex-dev"
+% +++
+\documentclass[aspectratio=149,9pt,]{beamer}
+\usetheme[numbering=fraction,block=fill]{metropolis}
+\usefonttheme{professionalfonts}
+
+\usepackage{luatexja,luatexja-adjust}
+\usepackage[no-math,match,deluxe]{luatexja-fontspec}
+\usepackage{microtype}
+
+\hypersetup{unicode,colorlinks}
+\hypersetup{linkcolor=blue,urlcolor=teal,citecolor=olive}
+% \hypersetup{linkcolor=black,urlcolor=black,citecolor=black}
+
+\usepackage{pxrubrica}
+\usepackage{autobreak}
+\usepackage{tikz,pgfplots,tcolorbox}
+\usetikzlibrary{calc}
+\pgfplotsset{compat=1.16}
+
+\usepackage[version=4,arrows=pgf]{mhchem}
+\mhchemoptions{textfontcommand=\sffamily,mathfontcommand=\mathsf}
+\newcommand*\cec[1]{\cesplit{{\,\ }{\0}}{#1}}
+
+\usepackage{tabularray}
+\SetTblrDefault{rowsep=0pt}
+
+\usepackage[loadonly,]{enumitem}
+\newlist{desc}{description}{5}
+\setlist[desc]{labelindent=2\zw,labelsep*=1\zw,labelwidth=4\zw}
+\newlist{enu}{enumerate}{5}
+\setlist[enu]{label*=\arabic*.}
+
+\ltjsetparameter{jacharrange={-2,-3,-8}}
+\usepackage[no-math,match,deluxe,fontspec]{luatexja-preset}
+
+% \usepackage[osf]{newpxtext}\usepackage{classico}
+\usepackage[nowidering]{yhmath}
+\usepackage{newpxmath,amsmath,mathtools,amssymb,mleftright}
+\usepackage[T1]{fontenc}
+\usepackage[notrig,italicdiff]{physics}
+\mleftright
+
+\usepackage[cal=boondoxo,frak=pxtx,bb=ams]{mathalpha}
+\DeclareMathAlphabet{\mathnormal}{T1}{pplx}{m}{it}
+\DeclareMathAlphabet{\mathrm}{T1}{pplx}{m}{n}
+\DeclareMathAlphabet{\mathit}{T1}{pplx}{m}{it}
+\DeclareMathAlphabet{\mathtt}{T1}{lmtt}{m}{n}
+\DeclareMathAlphabet{\mathsf}{T1}{kurier}{m}{n}
+\DeclareMathAlphabet{\mathbsf}{T1}{kurier}{b}{n}
+\DeclareMathAlphabet{\mathbold}{T1}{pplx}{b}{it}
+\DeclareMathAlphabet{\mathbf}{T1}{pplx}{b}{n}
+\DeclareSymbolFont{operators}{T1}{uop}{m}{n}
+
+\DeclareSymbolFont{numbers}{T1}{pplx}{m}{n}
+\DeclareMathSymbol{0}\mathalpha{numbers}{`0}
+\DeclareMathSymbol{1}\mathalpha{numbers}{`1}
+\DeclareMathSymbol{2}\mathalpha{numbers}{`2}
+\DeclareMathSymbol{3}\mathalpha{numbers}{`3}
+\DeclareMathSymbol{4}\mathalpha{numbers}{`4}
+\DeclareMathSymbol{5}\mathalpha{numbers}{`5}
+\DeclareMathSymbol{6}\mathalpha{numbers}{`6}
+\DeclareMathSymbol{7}\mathalpha{numbers}{`7}
+\DeclareMathSymbol{8}\mathalpha{numbers}{`8}
+\DeclareMathSymbol{9}\mathalpha{numbers}{`9}
+
+\DeclareFontFamily{U}{mathastro}{}
+\DeclareFontShape{U}{mathastro}{m}{n}{<->mathastrotest10}{}
+\DeclareSymbolFont{astro}{U}{mathastro}{m}{n}
+\DeclareMathSymbol\Sun\mathord{astro}{'300}
+\DeclareMathSymbol\Mercury\mathord{astro}{'301}
+\DeclareMathSymbol\Venus\mathord{astro}{'302}
+\DeclareMathSymbol\Earth\mathord{astro}{'303}
+\DeclareMathSymbol\Mars\mathord{astro}{'304}
+\DeclareMathSymbol\Jupiter\mathord{astro}{'305}
+\DeclareMathSymbol\Saturn\mathord{astro}{'306}
+\DeclareMathSymbol\Uranus\mathord{astro}{'307}
+\DeclareMathSymbol\Neptune\mathord{astro}{'310}
+\DeclareMathSymbol\Pluto\mathord{astro}{'311}
+\DeclareMathSymbol\varEarth\mathord{astro}{'312}
+\DeclareMathSymbol\Moon\mathord{astro}{'313}
+\DeclareMathSymbol\leftmoon\mathord{astro}{'313}
+\DeclareMathSymbol\rightmoon\mathord{astro}{'314}
+\DeclareMathSymbol\fullmoon\mathord{astro}{'315}
+\DeclareMathSymbol\newmoon\mathord{astro}{'316}
+\DeclareMathSymbol\newmoon\mathord{astro}{'316}
+
+\setmainfont[
+	Ligatures=TeX,
+	Scale=0.98,
+	BoldFont=FOT-RodinNTLGPro-B,
+	ItalicFont=FOT-RodinNTLGPro-B,
+]{Palatino}
+\setsansfont[
+	Ligatures=TeX,
+	Scale=0.98,
+	BoldFont=FOT-RodinNTLGPro-B,
+	BoldItalicFont=FOT-RodinNTLGPro-B,
+	%ItalicFont=FOT-RodinNTLGPro-B,
+]{Palatino}
+\setmainjfont[
+	Ligatures=TeX,
+	JFM=jlreq,
+	BoldFont=FOT-RodinNTLGPro-B,
+	ItalicFont=FOT-RodinNTLGPro-B,
+]{FOT-ModeMinBLargePro-M}
+\setsansjfont[
+	Ligatures=TeX,
+	JFM=jlreq,
+	BoldFont=FOT-RodinNTLGPro-B,
+	ItalicFont=FOT-RodinNTLGPro-B,
+]{FOT-ModeMinBLargePro-M}
+\setmonofont[
+	Ligatures=TeXReset,
+]{HackGen}
+\setmonojfont[
+	Ligatures=TeXReset,
+]{HackGen}
+
+\allowdisplaybreaks[4]
+\ltjenableadjust[lineend=extended,priority=true,profile=true,linestep=false]
+
+%%%%%%%%%%%%自作マクロ
+\newcommand{\hmvec}{\mathbold}
+\newcommand{\hmeqdef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\hmeqq}{\stackrel{\mathrm{?}}{=}}
+\newcommand{\centeralign}[1]{\rule{0pt}{0pt}\hfill#1\hfill\rule{0pt}{0pt}}
+\NewDocumentCommand\hmu{s m}{\IfBooleanF{#1}{\,}\ifmmode\mathrm{#2}\else\(\mathrm{#2}\)\fi}
+\newcommand{\hmemph}[1]{\textbf{#1}}
+\newcommand{\hme}[1]{\times10^{#1}}
+\newcommand{\hmfnc}[1]{\(\mathrm{#1}\)}
+\newcommand{\hmfconv}{F_\mathrm{conv}}
+\NewDocumentCommand\etal{s}{\textit{et al.}\IfBooleanF{#1}{\ }}
+
+\renewcommand{\qty}{\hmqty}
+
+\institute{北海道大学大学院理学院 地球流体力学研究室 M2}
+\author{人見祥磨}
+\title{地球型惑星の射出限界の考察に向けて}
+\subtitle{Ishiwatari \etal (2002) のレビュー}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}
+	\frametitle{動機}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item 系外惑星に生命が存在するためには、惑星表面に液体の水があることが重要だと考えられる
+				\item 惑星表面に液体の水が存在しうる領域は、ハビタブルゾーン (HZ)と呼ばれる
+				\item 惑星表面に液体の水が存在する条件の一つは、惑星の表面温度である
+				\item HZ の内側の、比較的高温な領域で起こる現象に興味があり、内側境界を決定したい
+			\end{itemize}
+		\end{column}
+		\begin{column}{.35\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{hz.jpg}\\
+			\scriptsize HZ の概要図。Image credit: NASA
+		\end{column}
+	\end{columns}
+	\begin{itemize}
+		\item HZ の内側境界を決定する重要な事象として、暴走温室状態が議論されている
+			\begin{itemize}
+				\item 惑星が射出できる放射フラックス (Outgoing Longwave Radiation; OLR)
+					には上限（射出限界）がある (Komabayashi, 1967, 1968; Ingersoll, 1969)
+				\item OLR の上限が
+				\item 惑星が射出する放射フラックスを超えた太陽放射が入射すると、
+					海洋と大気が平衡状態になれず、海洋が蒸発し、暴走温室状態になる
+					(Nakajima \etal*, 1992)
+				\item 暴走温室状態とは、温度が上昇すると水蒸気量が増え、温室効果をもつ水蒸気が
+					増大することでさらに地表面温度が上昇する、正のフィードバックによって、温度
+					が上昇し続けると想像される状態
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Nakajima \etal (1992)}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item 暴走温室状態や射出限界について、Nakajima \etal (1992) が整理を行った
+					\begin{itemize}
+						\item Nakajima \etal (1992) 以前は様々なモデルで暴走温室状態
+							の研究が進められていた
+						\item Nakajima \etal (1992) はそれぞれの研究で得られた結果の関係を示した
+					\end{itemize}
+				\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて OLR に 2 種類の上限があると示した
+					\begin{itemize}
+						\item 大気に水蒸気が少ないときにあらわれる Komabayashi--Ingersoll Limit
+						\item 対流圏の構造によって与えられる放射上限
+					\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{nf4.png}\\
+			\scriptsize Nakajima \etal (1992) Fig.\ 4\\地表面温度と OLR の関係
+		\end{column}
+	\end{columns}
+	\begin{itemize}
+		\item 1 次元モデルでの射出限界に関して理解が得られた
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Ishiwatari \etal (2002)}
+	\begin{itemize}
+		\item Nakajima \etal (1992) では以下の点が問題であった
+			\begin{itemize}
+				\item 1 次元モデルでの結果を 3 次元モデルに適用する方法が不明である
+					\begin{itemize}
+						\item 3 次元だと入射するエネルギーフラックス
+							(surface shortwave radiation: SSR) に緯度分布がある
+						\item ハドレー循環といった大気の運動の効果も取り入れる必要がある
+					\end{itemize}
+				\item 1 次元放射対流平衡モデルでは平衡解が得られるだけである
+					\begin{itemize}
+						\item その平衡解が安定かどうかはわからない
+						\item 入射フラックスが射出限界を超え、平衡解が存在しなくなった場合
+							の振る舞いが不明
+					\end{itemize}
+			\end{itemize}
+		\item Nakajima \etal (1992) の枠組みを自然に拡張して 3 次元でも計算を行った
+		\item 試計算を行ったところ、上層大気で内部重力波が増幅して、計算不安定が起きた
+			\begin{itemize}
+				\item 内部重力波に対して、強い人工的散逸を導入した
+				\item ハドレー循環や傾圧不安定などの対流圏の大気循環の基本的な構造は表現
+					されているので、大きな影響はないとした
+			\end{itemize}
+		\item 太陽定数 \(S\) を変化させて実験を行った
+			\begin{itemize}
+				\item 実験した太陽定数は以下の 8 つ。実験名の S の後ろが太陽定数
+				\item 実験 S1380 が現在の地球に相当
+				\item 全球平均 OLR は \(S\) の \(1/4\)
+			\end{itemize}
+	\end{itemize}
+	\begin{table}
+		\scriptsize
+		\begin{tblr}{c|cccccccc}
+			\hline
+			実験名&S1200&S1380&S1500&S1550&S1570&S1600&S1700&S1800\\
+			\hline
+			全球平均 SSR(\hmu*{W/m^2})&300.0&345.0&375.0&387.5&392.5&400.0&425.0&450.0\\
+			\hline
+		\end{tblr}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{モデル設定}
+	\begin{itemize}
+		\item 大気の成分は、凝結成分（水蒸気）と非凝結成分（乾燥空気）からなる
+			\begin{itemize}
+				\item 両成分とも理想気体で、比熱と分子量は等しいとする
+					\begin{itemize}
+						\item 大気の密度は実際よりも軽くなるが、それによる影響は
+							力学的構造を変えてしまうほど大きくないと考える
+					\end{itemize}
+			\end{itemize}
+	\end{itemize}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item 放射吸収物質は水蒸気のみとする
+				\item 雲の存在や散乱は考慮しない
+				\item 地表面で熱バランスが成り立ち、湿り度は 1 とする（すべて海で覆われている）
+			\end{itemize}
+			\begin{center}
+				\scriptsize
+				\includegraphics[width=.6\textwidth]{./fig/SSR.kps-crop.pdf}\\
+				Ishiwatari \etal (2002) Fig.~1\\
+				モデルに与える SSR の緯度分布と Komabayashi--Ingersoll limit,\\
+				及び Nakajima \etal (1992) で得られた放射上限 (\hmu*{W/m^2})
+			\end{center}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			\tiny\centering
+			\begin{tblr}{rl}
+				\hline
+				&モデル設定\\
+				\hline
+				成層圏&放射平衡\\
+				対流圏&飽和断熱減率\\
+				放射過程&散乱なし、灰色\\
+				成分&理想気体、水蒸気・乾燥空気\\
+				臨界点&なし\\
+				\hline
+				\hline
+				気体定数&\(R=8.314\hmu{J/kg/K}\)\\
+				重力加速度&\(g=9.8\hmu{m/s^2}\)\\
+				\hline
+				非凝縮成分の分子量&\(m_n=18\hme{-3}\hmu{kg/mol}\)\\
+				凝縮成分の分子量&\(m_v=18\hme{-3}\hmu{kg/mol}\)\\
+				凝縮成分の定圧モル比熱&\(c_{pv}=3.5R\)\\
+				非凝縮成分の定圧モル比熱&\(c_{pn}=3.5R\)\\
+				凝縮成分の潜熱&\(L=2.4253\hme{6}\hmu{J/kg}\)\\
+				飽和水蒸気曲線の定数&\(p^*_0=1.4\hme{11}\hmu{Pa}\)\\
+				地表面での非凝縮成分の量&\(p_{n0}=10^5\hmu{Pa}\)\\
+				凝縮成分の吸収係数&\(\kappa_v=0.01\hmu{m^2/kg}\)\\
+				非凝縮成分の吸収係数&\(\kappa_n=0\hmu{m^2/kg}\)\\
+				\hline
+				地表面の比熱&\(0\)\\
+				地表面のアルベド&\(0\)\\
+				\hline
+			\end{tblr}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{熱的暴走状態の発生}
+	\begin{itemize}
+		\item \(S\leq1570\hmu{W/m^2}\) の場合、全球平均 OLR と全球平均 SSR が一致し、
+			平衡状態になる
+		\item \(S=1800\hmu{W/m^2}\) の場合、全球平均 SSR \(450\hmu{W/m^2}\) と全球平均
+			OLR との差が広がり続け、平衡状態にならない
+			\begin{itemize}
+				\item OLR は減少し続け、表面温度は増加し続ける
+			\end{itemize}
+		\item \(S>1600\hmu{W/m^2}\) では平衡状態にならない
+	\end{itemize}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.7\textwidth}
+			\begin{figure}
+				\scriptsize
+				\includegraphics[width=.45\textwidth]{./fig/Tg-seqs.kps-crop.pdf}
+				\includegraphics[width=.45\textwidth]{./fig/OLR-seqs.kps-crop.pdf}\\
+				Ishiwatari \etal (2002) Fig.~2\\
+				全球平均 OLR (\hmu*{W/m^2}) と全球平均表面温度 (\hmu*{K}) の時間変化\\
+				S1200, S1380, S1570, S1800 の結果
+			\end{figure}
+		\end{column}
+		\begin{column}{.3\textwidth}
+			\centering\scriptsize
+			\includegraphics[width=.7\textwidth]{./fig/ISR-OLR.kps-crop.pdf}\\
+			Ishiwatari \etal (2002) Fig.~3\\
+			1000 日での SSR と OLR の関係\\
+			（S1600 では 2000 日）\\
+			◯では熱的平衡、×印では熱的暴走
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{熱的暴走の発生}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item 赤道付近の OLR は約 \(390\hmu{W/m^2}\) で頭打ち
+				\item 中高緯度の OLR は太陽定数の増加に伴って \(400\hmu{W/m^2}\) に漸近
+				\item 東西平均温度も OLR と同様に平坦化の傾向
+				\item 以上から熱的平衡状態が得られる太陽定数の上限は概ね \(1600\hmu{W/m^2}\)
+				\item これらが Nakajima \etal (1992) で指摘された放射上限に対応するものかを考察する
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{./fig/OLR-meris.kps-crop.pdf}\\
+			\includegraphics[width=\textwidth]{./fig/Tg-meris.kps-crop.pdf}\\
+			\scriptsize Ishiwatari \etal (2002) Fig.\ 4\\
+			平衡状態における OLR と東西平均値表面温度\\
+			実験 S1570, S1550, S1500, S1380, S1200 の結果
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{1 次元系との比較}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.45\textwidth}
+			\begin{itemize}
+				\item 実験 S1570 では、圏界面の相対湿度は \(50\hmu{\%}\) 程度
+				\item この場合の Komabayashi--Ingersoll limit を計算すると約 \(450\hmu{W/m^2}\) になる
+					\begin{itemize}
+						\item 得られた漸近値より大きい
+					\end{itemize}
+				\item 実験 S1570 での赤道域対流圏相対湿度は \(60\hmu{\%}\) 程度
+				\item 大気の相対湿度を \(60\hmu{\%}\) に固定して、1 次元放射対流平衡モデルで
+					放射上限を計算すると、\(385\hmu{W/m^2}\)
+					\begin{itemize}
+						\item 得られた漸近値に近い
+					\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\centering
+			\includegraphics[width=.45\textwidth]{./fig/157-T-meri.kps-crop.pdf}
+			\includegraphics[width=.45\textwidth]{./fig/157-Qcnd-meri.kps-crop.pdf}
+			\includegraphics[width=.45\textwidth]{./fig/157-q-meri.kps-crop.pdf}
+			\includegraphics[width=.45\textwidth]{./fig/157-RH-meri.kps-crop.pdf}
+			\includegraphics[width=.45\textwidth]{./fig/157-Strm-meri.kps-crop.pdf}
+			\includegraphics[width=.45\textwidth]{./fig/157-u-meri-crop.pdf}\\
+			\scriptsize Ishiwatari \etal (2002) Fig.\ 9\\
+			実験 S1570 の子午面構造\\
+			温度・凝結加熱・比湿・相対湿度・質量流線関数・東西風
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{1 次元系との比較}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item 1 次元系で相対湿度を変化させて放射上限を求めてみる
+				\item その結果は、3 次元計算と若干のずれはあるものの、対応を示しているように見える
+				\item 前頁の結果からも、3 次元計算で得られた漸近値は、Nakajima \etal (1992)
+					が得た放射上限に対応していると言える
+			\end{itemize}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\centering\scriptsize
+			\includegraphics[width=.8\textwidth]{./fig/Tg-OLR-1dimL99-3dEq-crop.pdf}\\
+			Ishiwatari \etal Fig.~7\\
+			\hmemph{曲線}: 相対湿度 \(\mathit{Rh}\) を変化させた時の 1 次元放射対流平衡計算の結果\\
+			Nakajima \etal (1992) は \(\mathit{Rh}=100\hmu{\%}\)\\
+			\hmemph{○×印}: 3 次元計算での赤道東西平均の OLR と 地表面温度の関係
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%\begin{frame}
+%	\frametitle{循環構造}
+%	\begin{columns}
+%		\begin{column}{.4\textwidth}
+%		\end{column}
+%		\begin{column}{.6\textwidth}
+%		\end{column}
+%	\end{columns}
+%\end{frame}
+
+\begin{frame}
+	\frametitle{モデルに含まれるバグ}
+	\begin{itemize}
+		\item この実験に利用した GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021)）
+			\begin{itemize}
+				\item Ishiwatari \etal (2021) は Ishiwatari \etal (2007) で利用した
+					バグを含む GCM (AGCM) を DCPAM に差し替えて再計算したもの
+			\end{itemize}
+		\item 湿潤対流調節スキームが動作する条件が逆になっていた
+			\begin{itemize}
+				\item 鉛直成層が湿潤断熱減率よりも安定しているときに、対流調節が
+					働くようになっていた
+				\item DCPAM にこのバグを意図的に導入すると、AGCM の結果が再現できた
+			\end{itemize}
+		\item バグを修正しても、内部重力波の振幅が増大することによる計算不安定は
+			解消できていない
+	\end{itemize}
+\end{frame}
+
+\end{document}
