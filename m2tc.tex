@@ -7,7 +7,6 @@
 
 \usepackage{luatexja,luatexja-adjust}
 \usepackage[no-math,match,deluxe]{luatexja-fontspec}
-\usepackage{microtype}
 
 \hypersetup{unicode,colorlinks}
 \hypersetup{linkcolor=blue,urlcolor=teal,citecolor=olive}
@@ -145,7 +144,7 @@
 \maketitle
 
 \begin{frame}
-	\frametitle{動機}
+	\frametitle{背景}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.6\textwidth}
 			\begin{itemize}
@@ -166,13 +165,12 @@
 			\begin{itemize}
 				\item 惑星が射出できる放射フラックス (Outgoing Longwave Radiation; OLR)
 					には上限（射出限界）がある (Komabayashi, 1967, 1968; Ingersoll, 1969)
-				\item OLR の上限が
-				\item 惑星が射出する放射フラックスを超えた太陽放射が入射すると、
-					海洋と大気が平衡状態になれず、海洋が蒸発し、暴走温室状態になる
-					(Nakajima \etal*, 1992)
-				\item 暴走温室状態とは、温度が上昇すると水蒸気量が増え、温室効果をもつ水蒸気が
+				\item 惑星が射出する放射フラックスを超えた太陽放射が入射している状態が
+					暴走温室状態 (Nakajima \etal*, 1992)
+				\item 海洋と大気が平衡状態になれず、海洋が蒸発しきってしまう
+				\item 温度が上昇すると水蒸気量が増え、温室効果をもつ水蒸気が
 					増大することでさらに地表面温度が上昇する、正のフィードバックによって、温度
-					が上昇し続けると想像される状態
+					が上昇し続けると想像される
 			\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -186,24 +184,41 @@
 					\begin{itemize}
 						\item Nakajima \etal (1992) 以前は様々なモデルで暴走温室状態
 							の研究が進められていた
-						\item Nakajima \etal (1992) はそれぞれの研究で得られた結果の関係を示した
+							\begin{itemize}
+								\item 放射平衡にある灰色の成層圏のみからなるモデルには放射上限がある
+									(Komabayashi, 1967, 1968; Ingersoll, 1969)
+								\item より精密な放射過程・熱力学過程をもち、対流圏まで考慮したモデル
+									でも放射上限があらわれる(Kasting 1988; Abe and Matsui 1988)
+							\end{itemize}
 					\end{itemize}
 				\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて OLR に 2 種類の上限があると示した
 					\begin{itemize}
 						\item 大気に水蒸気が少ないときにあらわれる Komabayashi--Ingersoll Limit
 						\item 対流圏の構造によって与えられる放射上限
+							（Kastingや Abe and Matsui の上限に対応）
+						\item このふたつの上限は異なる原因によるとわかった
 					\end{itemize}
 			\end{itemize}
 		\end{column}
 		\begin{column}{.4\textwidth}
-			\centering
+			\centering\scriptsize
+			\begin{tblr}{rl}
+				\hline
+				&Nakajima \etal (1992) モデル設定\\
+				\hline
+				成層圏&放射平衡\\
+				対流圏界面&飽和水蒸気\\
+				対流圏&飽和断熱減率\\
+				放射過程&散乱なし、灰色\\
+				成分&理想気体、2 成分（水蒸気・乾燥空気）\\
+				臨界点&なし\\
+				\hline
+			\end{tblr}
+			\par
 			\includegraphics[width=\textwidth]{nf4.png}\\
-			\scriptsize Nakajima \etal (1992) Fig.\ 4\\地表面温度と OLR の関係
+			Nakajima \etal (1992) Fig.\ 4\\地表面温度と OLR の関係
 		\end{column}
 	\end{columns}
-	\begin{itemize}
-		\item 1 次元モデルでの射出限界に関して理解が得られた
-	\end{itemize}
 \end{frame}
 
 \begin{frame}
