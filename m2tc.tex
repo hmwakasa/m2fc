@@ -224,14 +224,11 @@
 \begin{frame}
 	\frametitle{Ishiwatari \etal (2002)}
 	\begin{itemize}
-		\item Nakajima \etal (1992) では以下の点が問題であった
+		\item Nakajima \etal (1992) の枠組みを自然に拡張して 3 次元でも計算を行った
 			\begin{itemize}
-				\item 1 次元モデルでの結果を 3 次元モデルに適用する方法が不明である
-					\begin{itemize}
-						\item 3 次元だと入射するエネルギーフラックス
-							(surface shortwave radiation: SSR) に緯度分布がある
-						\item ハドレー循環といった大気の運動の効果も取り入れる必要がある
-					\end{itemize}
+				\item 入射するエネルギーフラックス (surface shortwave radiation: SSR) の
+					緯度分布も考慮した
+				\item 3 次元で運動も取り入れた計算をした
 				\item 1 次元放射対流平衡モデルでは平衡解が得られるだけである
 					\begin{itemize}
 						\item その平衡解が安定かどうかはわからない
@@ -239,50 +236,35 @@
 							の振る舞いが不明
 					\end{itemize}
 			\end{itemize}
-		\item Nakajima \etal (1992) の枠組みを自然に拡張して 3 次元でも計算を行った
+		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021))
+			\begin{itemize}
+				\item 湿潤対流調節スキームが動作する条件が逆になっていた
+				\item 鉛直成層が湿潤断熱減率よりも安定しているときに対流調節が働くようになっていた
+			\end{itemize}
 		\item 試計算を行ったところ、上層大気で内部重力波が増幅して、計算不安定が起きた
 			\begin{itemize}
 				\item 内部重力波に対して、強い人工的散逸を導入した
 				\item ハドレー循環や傾圧不安定などの対流圏の大気循環の基本的な構造は表現
 					されているので、大きな影響はないとした
 			\end{itemize}
-		\item 太陽定数 \(S\) を変化させて実験を行った
-			\begin{itemize}
-				\item 実験した太陽定数は以下の 8 つ。実験名の S の後ろが太陽定数
-				\item 実験 S1380 が現在の地球に相当
-				\item 全球平均 OLR は \(S\) の \(1/4\)
-			\end{itemize}
 	\end{itemize}
-	\begin{table}
-		\scriptsize
-		\begin{tblr}{c|cccccccc}
-			\hline
-			実験名&S1200&S1380&S1500&S1550&S1570&S1600&S1700&S1800\\
-			\hline
-			全球平均 SSR(\hmu*{W/m^2})&300.0&345.0&375.0&387.5&392.5&400.0&425.0&450.0\\
-			\hline
-		\end{tblr}
-	\end{table}
 \end{frame}
 
 \begin{frame}
 	\frametitle{モデル設定}
 	\begin{itemize}
-		\item 大気の成分は、凝結成分（水蒸気）と非凝結成分（乾燥空気）からなる
-			\begin{itemize}
-				\item 両成分とも理想気体で、比熱と分子量は等しいとする
-					\begin{itemize}
-						\item 大気の密度は実際よりも軽くなるが、それによる影響は
-							力学的構造を変えてしまうほど大きくないと考える
-					\end{itemize}
-			\end{itemize}
+		\item 基本の設定は Nakajima \etal (1992) と同一
+		\item 地表面で熱バランスが成り立ち、湿り度は 1 とする（すべて海で覆われている）
 	\end{itemize}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.5\textwidth}
 			\begin{itemize}
-				\item 放射吸収物質は水蒸気のみとする
-				\item 雲の存在や散乱は考慮しない
-				\item 地表面で熱バランスが成り立ち、湿り度は 1 とする（すべて海で覆われている）
+				\item 太陽定数 \(S\) を変化させて実験を行った
+					\begin{itemize}
+						\item 実験した太陽定数は下表の 8 つ。実験名の S の後ろが太陽定数
+						\item 実験 S1380 が現在の地球に相当
+						\item 全球平均 OLR は \(S\) の \(1/4\)
+					\end{itemize}
 			\end{itemize}
 			\begin{center}
 				\scriptsize
@@ -324,6 +306,17 @@
 			\end{tblr}
 		\end{column}
 	\end{columns}
+	\begin{table}
+		\scriptsize
+		実験を行った太陽定数
+		\begin{tblr}{c|cccccccc}
+			\hline
+			実験名&S1200&S1380&S1500&S1550&S1570&S1600&S1700&S1800\\
+			\hline
+			全球平均 SSR(\hmu*{W/m^2})&300.0&345.0&375.0&387.5&392.5&400.0&425.0&450.0\\
+			\hline
+		\end{tblr}
+	\end{table}
 \end{frame}
 
 \begin{frame}
