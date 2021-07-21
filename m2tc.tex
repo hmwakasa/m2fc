@@ -1,7 +1,7 @@
 % +++
 % latex="texfot lualatex-dev"
 % +++
-\documentclass[aspectratio=149,9pt,]{beamer}
+\documentclass[aspectratio=149,9pt,fleqn]{beamer}
 \usetheme[numbering=fraction,block=fill]{metropolis}
 \usefonttheme{professionalfonts}
 
@@ -131,8 +131,6 @@
 \newcommand{\hmfnc}[1]{\(\mathrm{#1}\)}
 \newcommand{\hmfconv}{F_\mathrm{conv}}
 \NewDocumentCommand\etal{s}{\textit{et al.}\IfBooleanF{#1}{\ }}
-
-\renewcommand{\qty}{\hmqty}
 
 \institute{北海道大学大学院理学院 地球流体力学研究室 M2}
 \author{人見祥磨}
@@ -339,6 +337,48 @@
 			\end{tblr}
 		\end{column}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{基礎方程式}
+	\tiny
+	\begin{align}
+		\dv{\zeta}{t}&=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+		\qty[-(\zeta+f)u-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a\cos\varphi}\pdv{\pi}{\lambda}]
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		-F_\zeta^\mathit{diff}\tag{渦度}\\
+		\dv{D}{t}&=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+		\qty[(\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-x\frac{RT'}{a}\pdv{\pi}{\varphi}]
+		+\frac{1}{a\cos\varphi}\pdv{}{\varphi}
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff}\tag{発散}\\
+		\dv{\pi}{t}&=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[v\cos\varphi]-\pdv{\dot\sigma}{\sigma},\quad
+		\pdv{\Phi}{\sigma}=-\frac{RT}{\sigma}\tag{静水圧}\\
+		\dv{q}{t}&=\frac{g}{p_s}\pdv{F_q^\mathit{vdf}}{\sigma}+F_q^\mathit{vdf}+S_q^\mathit{cond}\tag{比湿}\\
+		\dv{T}{t}&=\frac{RT}{c_p}\qty(\pdv{\pi}{t}+\frac{u}{a\cos\varphi}\pdv{\pi}{\lambda}+
+		\frac{v}{a}\pdv{\pi}{\varphi}+\frac{\dot\sigma}{\sigma})
+		+\frac{1}{c_p}\qty(\frac{g}{p_s}\pdv{F_T^\mathit{vdf}}{\sigma}+
+		\frac{g}{p_s}\pdv{F_\mathrm{rad}^\mathit{vdf}}{\sigma})
+		+F_T^\mathit{diff}+LS_q^\mathit{cond}\tag{熱力学}
+	\end{align}
+	\begin{gather*}
+		\dv{}{t}
+		\equiv\pdv{}{t}+\frac{u}{a\cos\varphi}\pdv{}{\lambda}
+		+\frac{u}{a}\pdv{}{\varphi}+\dot\sigma\pdv{}{\sigma},\quad
+		\zeta\equiv\frac{1}{a\cos\varphi}\pdv{v}{\lambda}
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[u\cos\varphi]\\
+		D\equiv\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
+		+\frac{1}{a\cos\varphi}[v\cos\varphi],\quad
+		\Phi\equiv gz,\quad\pi\equiv\ln p_s
+	\end{gather*}
+	\((\lambda,\varphi)\): 緯度経度; \(\sigma\): 高度（\(\sigma\) 座標）; \(u, v\): 水平風;
+	\(\dot\sigma\): \(\sigma\) 座標での鉛直風; \(T\): 温度; \(q\): 比湿;
+	\(p_s\): 地表面気圧; \(f\): コリオリパラメータ; \(a\): 惑星半径; \(g\): 重力加速度;\\
+	\(R\): 乾燥空気の気体定数; \(c_p\): 定圧比熱; \(L\): 水の潜熱;
+	\(F_\bullet^\mathit{diff}\): 水平拡散項; \(F_\bullet^\mathit{vdf}\): 鉛直拡散項;
+	\(S_q^\mathit{cond}\): 結露・凝結による比湿の変化;
 \end{frame}
 
 \begin{frame}
