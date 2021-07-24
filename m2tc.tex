@@ -342,33 +342,32 @@
 \begin{frame}
 	\frametitle{基礎方程式}
 	\tiny
-	\begin{align}
-		\dv{\zeta}{t}&=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+	\begin{gather*}
+		\dv{\zeta}{t}=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
 		\qty[-(\zeta+f)u-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a\cos\varphi}\pdv{\pi}{\lambda}]
 		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}
 		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
-		-F_\zeta^\mathit{diff}\tag{渦度}\\
-		\dv{D}{t}&=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+		-F_\zeta^\mathit{diff},\tag{渦度}\\
+		\dv{D}{t}=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
 		\qty[(\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-x\frac{RT'}{a}\pdv{\pi}{\varphi}]
 		+\frac{1}{a\cos\varphi}\pdv{}{\varphi}
 		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
-		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff}\tag{発散}\\
-		\dv{\pi}{t}&=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
+		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff},\tag{発散}\\
+		\dv{\pi}{t}=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
 		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[v\cos\varphi]-\pdv{\dot\sigma}{\sigma},\quad
-		\pdv{\Phi}{\sigma}=-\frac{RT}{\sigma}\tag{静水圧}\\
-		\dv{q}{t}&=\frac{g}{p_s}\pdv{F_q^\mathit{vdf}}{\sigma}+F_q^\mathit{vdf}+S_q^\mathit{cond}\tag{比湿}\\
-		\dv{T}{t}&=\frac{RT}{c_p}\qty(\pdv{\pi}{t}+\frac{u}{a\cos\varphi}\pdv{\pi}{\lambda}+
+		\pdv{\Phi}{\sigma}=-\frac{RT}{\sigma},\quad
+		\dv{q}{t}=\frac{g}{p_s}\pdv{F_q^\mathit{vdf}}{\sigma}+F_q^\mathit{vdf}+S_q^\mathit{cond},
+		\tag{連続の式, 静水圧, 比湿}\\
+		\dv{T}{t}=\frac{RT}{c_p}\qty(\pdv{\pi}{t}+\frac{u}{a\cos\varphi}\pdv{\pi}{\lambda}+
 		\frac{v}{a}\pdv{\pi}{\varphi}+\frac{\dot\sigma}{\sigma})
 		+\frac{1}{c_p}\qty(\frac{g}{p_s}\pdv{F_T^\mathit{vdf}}{\sigma}+
 		\frac{g}{p_s}\pdv{F_\mathrm{rad}^\mathit{vdf}}{\sigma})
-		+F_T^\mathit{diff}+LS_q^\mathit{cond}\tag{熱力学}
-	\end{align}
-	\begin{gather*}
+		+F_T^\mathit{diff}+LS_q^\mathit{cond},\tag{熱力学}\\
 		\dv{}{t}
 		\equiv\pdv{}{t}+\frac{u}{a\cos\varphi}\pdv{}{\lambda}
 		+\frac{u}{a}\pdv{}{\varphi}+\dot\sigma\pdv{}{\sigma},\quad
 		\zeta\equiv\frac{1}{a\cos\varphi}\pdv{v}{\lambda}
-		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[u\cos\varphi]\\
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[u\cos\varphi],\\
 		D\equiv\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
 		+\frac{1}{a\cos\varphi}[v\cos\varphi],\quad
 		\Phi\equiv gz,\quad\pi\equiv\ln p_s
