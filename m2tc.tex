@@ -166,23 +166,20 @@
 	\frametitle{暴走温室状態}
 	\begin{itemize}
 		\item HZ の内側境界を決定する重要な事象として、暴走温室状態が議論されている
-			\begin{itemize}
-				\item 惑星が射出する放射フラックス (Outgoing Longwave Radiation; OLR)
-					を超えた太陽放射が入射している状態が暴走温室状態 (Nakajima \etal*, 1992)
-				\item 海洋と大気が平衡状態になれず、海洋が蒸発しきってしまう
-				\item 温度が上昇すると水蒸気量が増え、温室効果をもつ水蒸気が
-					増大することでさらに地表面温度が上昇する、正のフィードバックによって、温度
-					が上昇し続けると想像される
-			\end{itemize}
 	\end{itemize}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.65\textwidth}
 			\begin{itemize}
 				\item 様々なモデルで暴走温室状態の研究が進められていた
 					\begin{itemize}
-						\item 放射平衡にある灰色の成層圏のみからなるモデルには放射上限がある
+						\item 温度が上昇すると水蒸気量が増え、
+							温室効果をもつ水蒸気が増大することでさらに地表面温度が上昇する、
+							正のフィードバックによる温度が上昇し続け、海洋と大気が平衡に
+							なれず、海洋が完全に蒸発する (Plass 1961 や Gold 1964)
+						\item 灰色成層圏モデルを用い、惑星大気上端での外向き赤外放射
+							(outgoing longwave radiation: OLR) には上限がある
 							(Komabayashi, 1967, 1968; Ingersoll, 1969)
-						\item より精密な放射過程・熱力学過程をもち、対流圏まで考慮したモデル
+						\item 精密な放射過程・熱力学過程をもち、対流圏まで考慮したモデル
 							でも放射上限があらわれる(Kasting 1988; Abe and Matsui 1988)
 					\end{itemize}
 				\item 暴走温室状態や射出限界について、Nakajima \etal (1992) が整理を行った
@@ -237,7 +234,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Ishiwatari \etal (2002) のレビュー}
+	\frametitle{Ishiwatari \etal (2002) の目的}
 	\begin{itemize}
 		\item Nakajima \etal (1992) の枠組みを踏まえ 3 次元で行うことが目的
 			\begin{itemize}
@@ -251,43 +248,6 @@
 					\end{itemize}
 			\end{itemize}
 	\end{itemize}
-	\begin{columns}[T,onlytextwidth]
-		\begin{column}{.5\textwidth}
-			\begin{itemize}
-				\item 太陽定数 \(S\) を変化させて実験を行った
-					\begin{itemize}
-						\item 実験した太陽定数は下表の 8 つ。実験名の S の後ろが太陽定数
-						\item 実験 S1380 が現在の地球に相当
-						\item 全球平均 SSR は \(S\) の \(1/4\)
-					\end{itemize}
-			\end{itemize}
-			\begin{table}
-				\small
-				実験を行った太陽定数
-				\begin{tblr}{c|cccc}
-					\hline
-					実験名&S1200&S1380&S1500&S1550\\
-					\hline
-					SSR(\hmu*{W/m^2})&300.0&345.0&375.0&387.5\\
-					\hline
-					\hline
-					実験名&S1570&S1600&S1700&S1800\\
-					\hline
-					SSR(\hmu*{W/m^2})&392.5&400.0&425.0&450.0\\
-					\hline
-				\end{tblr}
-			\end{table}
-		\end{column}
-		\begin{column}{.45\textwidth}
-			\centering\small
-			\includegraphics[width=.8\textwidth]{./fig/SSR.kps-crop.pdf}\\
-			Ishiwatari \etal (2002) Fig.~1\\
-			モデルに与える SSR の緯度分布と\\
-			Komabayashi--Ingersoll limit,\\
-			及び Nakajima \etal (1992) で\\
-			得られた放射上限 (\hmu*{W/m^2})
-		\end{column}
-	\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -335,6 +295,43 @@
 				地表面のアルベド&\(0\)\\
 				\hline
 			\end{tblr}
+		\end{column}
+	\end{columns}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item 太陽定数 \(S\) を変化させて実験を行った
+					\begin{itemize}
+						\item 実験した太陽定数は下表の 8 つ。実験名の S の後ろが太陽定数
+						\item 実験 S1380 が現在の地球に相当
+						\item 全球平均 SSR は \(S\) の \(1/4\)
+					\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+			% \centering\small
+			% \includegraphics[width=.8\textwidth]{./fig/SSR.kps-crop.pdf}\\
+			% Ishiwatari \etal (2002) Fig.~1\\
+			% モデルに与える SSR の緯度分布と\\
+			% Komabayashi--Ingersoll limit,\\
+			% 及び Nakajima \etal (1992) で\\
+			% 得られた放射上限 (\hmu*{W/m^2})
+			\begin{table}
+				\scriptsize
+				実験を行った太陽定数
+				\begin{tblr}{c|cccc}
+					\hline
+					実験名&S1200&S1380&S1500&S1550\\
+					\hline
+					SSR(\hmu*{W/m^2})&300.0&345.0&375.0&387.5\\
+					\hline
+					\hline
+					実験名&S1570&S1600&S1700&S1800\\
+					\hline
+					SSR(\hmu*{W/m^2})&392.5&400.0&425.0&450.0\\
+					\hline
+				\end{tblr}
+			\end{table}
 		\end{column}
 	\end{columns}
 \end{frame}
