@@ -143,7 +143,7 @@
 
 \begin{frame}
 	\frametitle{背景}
-	\begin{columns}[T,onlytextwidth]
+	\begin{columns}[c,onlytextwidth]
 		\begin{column}{.6\textwidth}
 			\begin{itemize}
 				\item 系外惑星に生命が存在するためには、惑星表面に液体の水があることが
@@ -155,9 +155,14 @@
 			\end{itemize}
 		\end{column}
 		\begin{column}{.35\textwidth}
-			\centering
+			\centering\scriptsize
 			\includegraphics[width=\textwidth]{hz.jpg}\\
-			\scriptsize HZ の概要図。Image credit: NASA
+			HZ の概要図。Image credit: NASA
+			\par
+			\includegraphics[width=\textwidth]{kopparapu8.png}\\
+			Kopparapu \etal (2013) Fig.\ 8A。\\
+			様々な中心星の有効温度ごとに、\\
+			雲がない場合の HZ を示したもの。
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -172,17 +177,14 @@
 			\begin{itemize}
 				\item 様々なモデルで暴走温室状態の研究が進められていた
 					\begin{itemize}
-						\item 温度が上昇すると水蒸気量が増え、
-							温室効果をもつ水蒸気が増大することでさらに地表面温度が上昇する、
-							正のフィードバックによる温度が上昇し続け、海洋と大気が平衡に
-							なれず、海洋が完全に蒸発する (Plass 1961 や Gold 1964)
-						\item 灰色成層圏モデルを用い、惑星大気上端での外向き赤外放射
+						\item 温度の上昇と水蒸気量の増加には正のフィードバックがあり、
+							海洋が完全に蒸発することが考えられる (Plass 1961 や Gold 1964)
+						\item 灰色成層圏モデルでは惑星大気上端での外向き赤外放射
 							(outgoing longwave radiation: OLR) には上限がある
 							(Komabayashi, 1967, 1968; Ingersoll, 1969)
 						\item 精密な放射過程・熱力学過程をもち、対流圏まで考慮したモデル
 							でも放射上限があらわれる(Kasting 1988; Abe and Matsui 1988)
 					\end{itemize}
-				\item 暴走温室状態や射出限界について、Nakajima \etal (1992) が整理を行った
 			\end{itemize}
 		\end{column}
 		\begin{column}{.3\textwidth}
@@ -193,6 +195,9 @@
 			地表面温度の関係
 		\end{column}
 	\end{columns}
+	\begin{itemize}
+		\item 暴走温室状態や射出限界について、Nakajima \etal (1992) が整理を行った
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -302,7 +307,7 @@
 			\begin{itemize}
 				\item 太陽定数 \(S\) を変化させて実験を行った
 					\begin{itemize}
-						\item 実験した太陽定数は下表の 8 つ。実験名の S の後ろが太陽定数
+						\item 実験した太陽定数は表の 8 つ。実験名の S の後ろが太陽定数
 						\item 実験 S1380 が現在の地球に相当
 						\item 全球平均 SSR は \(S\) の \(1/4\)
 					\end{itemize}
@@ -518,5 +523,20 @@
 %		\end{column}
 %	\end{columns}
 %\end{frame}
+
+\begin{frame}
+	\frametitle{まとめ}
+	\begin{itemize}
+		\item 3 次元計算でも放射上限が現れる
+		\item 赤道付近での OLR の上限は約 \(390\hmu{W/m^2}\)
+		\item この上限は Nakajima \etal (1992) で示された対流圏の構造によって与えられる
+			放射上限に対応
+		\item ただし、Ishiwatari \etal (2002) で用いたモデルにはバグが含まれている
+			\begin{itemize}
+				\item バグによって計算結果が変わっていそう
+				\item 修士研究ではモデルのバグを修正した計算を行う予定
+			\end{itemize}
+	\end{itemize}
+\end{frame}
 
 \end{document}
