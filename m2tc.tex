@@ -174,7 +174,7 @@
 							(outgoing longwave radiation: OLR) には上限がある
 							(Komabayashi, 1967, 1968; Ingersoll, 1969)
 						\item 精密な放射過程・熱力学過程をもち、対流圏まで考慮したモデル
-							でも放射上限があらわれる(Kasting 1988; Abe and Matsui 1988)
+							でも放射上限があらわれる (Kasting 1988; Abe and Matsui 1988)
 					\end{itemize}
 			\end{itemize}
 		\end{column}
@@ -187,44 +187,53 @@
 		\end{column}
 	\end{columns}
 	\begin{itemize}
+		\item それぞれの研究の暴走温室状態の定義と、その関連性は明確ではなかった
 		\item 暴走温室状態や射出限界について、Nakajima \etal (1992) が整理を行った
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Nakajima \etal (1992) のレビュー}
-	\begin{itemize}
-		\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて
-			OLR に 2 種類の上限があると示した
-			\begin{itemize}
-				\item 大気に水蒸気が極端に
-					少ないときにあらわれる Komabayashi--Ingersoll Limit
-				\item 対流圏の構造によって与えられる放射上限
-					（Kastingや Abe and Matsui の上限に対応）
-				\item このふたつの上限は異なる原因によるとわかった
-			\end{itemize}
-	\end{itemize}
-	\begin{columns}[c]
+	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.55\textwidth}
-			\centering\small
-			\begin{tblr}{rl}
-				\hline
-				&Nakajima \etal (1992) モデル設定\\
-				\hline
-				成層圏&放射平衡\\
-				対流圏界面&飽和水蒸気\\
-				対流圏&飽和断熱減率\\
-				放射過程&散乱なし、灰色\\
-				成分&理想気体、2 成分（水蒸気・乾燥空気）\\
-				臨界点&なし\\
-				\hline
-			\end{tblr}
+			\begin{itemize}
+				\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて
+					OLR に 2 種類の上限があると示した
+					\begin{itemize}
+						\item 大気に水蒸気が極端に少ないときにあらわれる上限
+							(Komabayashi--Ingersoll Limit)
+						\item 対流圏の構造によって与えられる上限
+						\item 高温の場合の極限
+							（Kastingや Abe and Matsui の上限に対応）
+						\item この 3 つの上限は異なる原因によるとわかった
+					\end{itemize}
+			\end{itemize}
+			\begin{table}
+				\tiny
+				\begin{tblr}{rl}
+					\hline
+					&Nakajima \etal (1992) モデル設定\\
+					\hline
+					成層圏&放射平衡\\
+					対流圏界面&飽和水蒸気\\
+					対流圏&飽和断熱減率\\
+					放射過程&散乱なし、灰色\\
+					成分&理想気体、2 成分（水蒸気・乾燥空気）、分子量同じ\\
+					水蒸気の吸収係数&\(\kappa_v=0.01\hmu{m^2/kg}\)\\
+					乾燥空気の吸収係数&\(\kappa_n=0\)\\
+					臨界点&考慮せず\\
+					\hline
+				\end{tblr}
+			\end{table}
 		\end{column}
 		\begin{column}{.4\textwidth}
-			\centering\small
-			\includegraphics[width=\textwidth]{nf4.png}\\
-			Nakajima \etal (1992) Fig.\ 3\\
-			地表面温度と OLR の関係
+			\begin{figure}
+				\scriptsize
+				\includegraphics[width=\textwidth]{nf6.png}\\
+				Nakajima \etal (1992) Fig.\ 6\\
+				地表面での乾燥空気の分圧 \(p_{n0}\) を変化\\
+				させた時の地表面温度と OLR の関係
+			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -244,6 +253,48 @@
 					\end{itemize}
 			\end{itemize}
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{基礎方程式}
+	大気大循環モデルを用いて実験を行った
+	\tiny
+	\begin{gather*}
+		\dv{\zeta}{t}=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+		\qty[-(\zeta+f)u-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a\cos\varphi}\pdv{\pi}{\lambda}]
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		-F_\zeta^\mathit{diff},\tag{渦度}\\
+		\dv{D}{t}=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
+		\qty[(\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-x\frac{RT'}{a}\pdv{\pi}{\varphi}]
+		+\frac{1}{a\cos\varphi}\pdv{}{\varphi}
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff},\tag{発散}\\
+		\dv{\pi}{t}=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[v\cos\varphi]-\pdv{\dot\sigma}{\sigma},\quad
+		\pdv{\Phi}{\sigma}=-\frac{RT}{\sigma},\quad
+		\dv{q}{t}=\frac{g}{p_s}\pdv{F_q^\mathit{vdf}}{\sigma}+F_q^\mathit{vdf}+S_q^\mathit{cond},
+		\tag{連続の式, 静水圧, 比湿}\\
+		\dv{T}{t}=\frac{RT}{c_p}\qty(\pdv{\pi}{t}+\frac{u}{a\cos\varphi}\pdv{\pi}{\lambda}+
+		\frac{v}{a}\pdv{\pi}{\varphi}+\frac{\dot\sigma}{\sigma})
+		+\frac{1}{c_p}\qty(\frac{g}{p_s}\pdv{F_T^\mathit{vdf}}{\sigma}+
+		\frac{g}{p_s}\pdv{F_\mathrm{rad}^\mathit{vdf}}{\sigma})
+		+F_T^\mathit{diff}+LS_q^\mathit{cond},\tag{熱力学}\\
+		\dv{}{t}
+		\equiv\pdv{}{t}+\frac{u}{a\cos\varphi}\pdv{}{\lambda}
+		+\frac{u}{a}\pdv{}{\varphi}+\dot\sigma\pdv{}{\sigma},\quad
+		\zeta\equiv\frac{1}{a\cos\varphi}\pdv{v}{\lambda}
+		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[u\cos\varphi],\\
+		D\equiv\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
+		+\frac{1}{a\cos\varphi}[v\cos\varphi],\quad
+		\Phi\equiv gz,\quad\pi\equiv\ln p_s
+	\end{gather*}
+	\((\lambda,\varphi)\): 緯度経度; \(\sigma\): 高度（\(\sigma\) 座標）; \(u, v\): 水平風;
+	\(\dot\sigma\): \(\sigma\) 座標での鉛直風; \(T\): 温度; \(q\): 比湿;
+	\(p_s\): 地表面気圧; \(f\): コリオリパラメータ; \(a\): 惑星半径; \(g\): 重力加速度;\\
+	\(R\): 乾燥空気の気体定数; \(c_p\): 定圧比熱; \(L\): 水の潜熱;
+	\(F_\bullet^\mathit{diff}\): 水平拡散項; \(F_\bullet^\mathit{vdf}\): 鉛直拡散項;
+	\(S_q^\mathit{cond}\): 結露・凝結による比湿の変化;
 \end{frame}
 
 \begin{frame}
@@ -333,47 +384,6 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{基礎方程式}
-	\tiny
-	\begin{gather*}
-		\dv{\zeta}{t}=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
-		\qty[-(\zeta+f)u-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a\cos\varphi}\pdv{\pi}{\lambda}]
-		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}
-		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
-		-F_\zeta^\mathit{diff},\tag{渦度}\\
-		\dv{D}{t}=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
-		\qty[(\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-x\frac{RT'}{a}\pdv{\pi}{\varphi}]
-		+\frac{1}{a\cos\varphi}\pdv{}{\varphi}
-		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
-		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff},\tag{発散}\\
-		\dv{\pi}{t}=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
-		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[v\cos\varphi]-\pdv{\dot\sigma}{\sigma},\quad
-		\pdv{\Phi}{\sigma}=-\frac{RT}{\sigma},\quad
-		\dv{q}{t}=\frac{g}{p_s}\pdv{F_q^\mathit{vdf}}{\sigma}+F_q^\mathit{vdf}+S_q^\mathit{cond},
-		\tag{連続の式, 静水圧, 比湿}\\
-		\dv{T}{t}=\frac{RT}{c_p}\qty(\pdv{\pi}{t}+\frac{u}{a\cos\varphi}\pdv{\pi}{\lambda}+
-		\frac{v}{a}\pdv{\pi}{\varphi}+\frac{\dot\sigma}{\sigma})
-		+\frac{1}{c_p}\qty(\frac{g}{p_s}\pdv{F_T^\mathit{vdf}}{\sigma}+
-		\frac{g}{p_s}\pdv{F_\mathrm{rad}^\mathit{vdf}}{\sigma})
-		+F_T^\mathit{diff}+LS_q^\mathit{cond},\tag{熱力学}\\
-		\dv{}{t}
-		\equiv\pdv{}{t}+\frac{u}{a\cos\varphi}\pdv{}{\lambda}
-		+\frac{u}{a}\pdv{}{\varphi}+\dot\sigma\pdv{}{\sigma},\quad
-		\zeta\equiv\frac{1}{a\cos\varphi}\pdv{v}{\lambda}
-		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[u\cos\varphi],\\
-		D\equiv\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
-		+\frac{1}{a\cos\varphi}[v\cos\varphi],\quad
-		\Phi\equiv gz,\quad\pi\equiv\ln p_s
-	\end{gather*}
-	\((\lambda,\varphi)\): 緯度経度; \(\sigma\): 高度（\(\sigma\) 座標）; \(u, v\): 水平風;
-	\(\dot\sigma\): \(\sigma\) 座標での鉛直風; \(T\): 温度; \(q\): 比湿;
-	\(p_s\): 地表面気圧; \(f\): コリオリパラメータ; \(a\): 惑星半径; \(g\): 重力加速度;\\
-	\(R\): 乾燥空気の気体定数; \(c_p\): 定圧比熱; \(L\): 水の潜熱;
-	\(F_\bullet^\mathit{diff}\): 水平拡散項; \(F_\bullet^\mathit{vdf}\): 鉛直拡散項;
-	\(S_q^\mathit{cond}\): 結露・凝結による比湿の変化;
-\end{frame}
-
-\begin{frame}
 	\frametitle{Ishiwatari \etal (2002) の問題点}
 	\begin{itemize}
 		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021))
@@ -398,7 +408,7 @@
 		\includegraphics[width=.45\textwidth]{./fig/Tg-seqs.kps-crop.pdf}
 		\includegraphics[width=.45\textwidth]{./fig/OLR-seqs.kps-crop.pdf}\\
 		Ishiwatari \etal (2002) Fig.~2\\
-		全球平均 OLR (\hmu*{W/m^2}) と全球平均表面温度 (\hmu*{K}) の時間変化\\
+		全球平均 OLR (\hmu*{W/m^2}) と全球平均表面温度 (\hmu*{K}) の時間変化;
 		S1200, S1380, S1570, S1800 の結果
 	\end{figure}
 	\begin{columns}[T,onlytextwidth]
