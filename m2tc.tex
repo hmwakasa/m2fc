@@ -298,6 +298,27 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{モデルに含まれる物理過程}
+	\begin{itemize}
+		\item Cumulus parameterization
+			\begin{itemize}
+				\item 湿潤対流調節スキーム
+					\begin{itemize}
+						\item 上下 2 層で湿潤不安定が起きている場合に適用
+							\begin{itemize}
+								\item 気温減率が湿潤断熱減率を超える場合
+								\item 飽和か過飽和になっている場合
+							\end{itemize}
+					\end{itemize}
+			\end{itemize}
+		\item 結露過程
+		\item 放射過程
+		\item 鉛直混合
+		\item 表層の流れ
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 	\frametitle{モデル設定}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.5\textwidth}
@@ -310,6 +331,7 @@
 					\end{itemize}
 				\item 地表面で熱バランスが成り立ち、湿り度は 1 とする（すべて海で覆われている）
 				\item 平分解能は三角形切断の T21 に対応した \(32\times64\)
+				\item 鉛直層数は 32
 			\end{itemize}
 		\end{column}
 		\begin{column}{.45\textwidth}
@@ -386,16 +408,16 @@
 \begin{frame}
 	\frametitle{Ishiwatari \etal (2002) の問題点}
 	\begin{itemize}
-		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021))
-			\begin{itemize}
-				\item 湿潤対流調節スキームが動作する条件が逆になっていた
-				\item 鉛直成層が湿潤断熱減率よりも安定しているときに対流調節が働くようになっていた
-			\end{itemize}
 		\item 試計算を行ったところ、上層大気で内部重力波が増幅して、計算不安定が起きた
 			\begin{itemize}
 				\item 内部重力波に対して、強い人工的散逸を導入した
 				\item ハドレー循環や傾圧不安定などの対流圏の大気循環の基本的な構造は表現
 					されているので、大きな影響はないとした
+			\end{itemize}
+		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021))
+			\begin{itemize}
+				\item 湿潤対流調節スキームが動作する条件が逆になっていた
+				\item 鉛直成層が湿潤断熱減率よりも安定しているときに対流調節が働くようになっていた
 			\end{itemize}
 		\item 修士研究では、モデルのバグを修正した計算を行う予定
 	\end{itemize}
@@ -460,37 +482,26 @@
 
 \begin{frame}
 	\frametitle{1 次元系との比較}
-	\begin{columns}[T,onlytextwidth]
-		\begin{column}{.45\textwidth}
+	\begin{center}
+		\includegraphics[width=.9\textwidth]{zu-crop.pdf}\\
+			\scriptsize Ishiwatari \etal (2002) Fig.\ 9\quad 実験 S1570 の子午面構造\\
+			質量流線関数と相対湿度
+	\end{center}
+	\begin{itemize}
+		\item Komabayashi--Ingersoll limmit との対応
 			\begin{itemize}
-				\item Komabayashi--Ingersoll limmit との対応
-					\begin{itemize}
-						\item 実験 S1570 では、圏界面の相対湿度は \(50\hmu{\%}\) 程度
-						\item この場合の Komabayashi--Ingersoll limit を計算すると約 \(450\hmu{W/m^2}\) になる
-						\item 得られた上限値より大きい
-					\end{itemize}
-				\item Nakajima \etal (1992) が得た放射上限との対応
-					\begin{itemize}
-						\item 実験 S1570 での赤道域対流圏相対湿度は \(60\hmu{\%}\) 程度
-						\item 大気の相対湿度を \(60\hmu{\%}\) に固定して、1 次元放射対流平衡モデルで
-							放射上限を計算すると、\(385\hmu{W/m^2}\)
-						\item 得られた漸近値に近い
-					\end{itemize}
+				\item 実験 S1570 では、圏界面の相対湿度は \(50\hmu{\%}\) 程度
+				\item この場合の Komabayashi--Ingersoll limit を計算すると約 \(450\hmu{W/m^2}\) になる
+				\item 得られた上限値より大きい
 			\end{itemize}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\centering
-			\includegraphics[width=.45\textwidth]{./fig/157-T-meri.kps-crop.pdf}
-			\includegraphics[width=.45\textwidth]{./fig/157-Qcnd-meri.kps-crop.pdf}
-			\includegraphics[width=.45\textwidth]{./fig/157-q-meri.kps-crop.pdf}
-			\includegraphics[width=.45\textwidth]{./fig/157-RH-meri.kps-crop.pdf}
-			\includegraphics[width=.45\textwidth]{./fig/157-Strm-meri.kps-crop.pdf}
-			\includegraphics[width=.45\textwidth]{./fig/157-u-meri-crop.pdf}\\
-			\scriptsize Ishiwatari \etal (2002) Fig.\ 9\\
-			実験 S1570 の子午面構造\\
-			温度・凝結加熱・比湿・相対湿度・質量流線関数・東西風
-		\end{column}
-	\end{columns}
+		\item Nakajima \etal (1992) が得た放射上限との対応
+			\begin{itemize}
+				\item 実験 S1570 での赤道域対流圏相対湿度は \(60\hmu{\%}\) 程度
+				\item 大気の相対湿度を \(60\hmu{\%}\) に固定して、1 次元放射対流平衡モデルで
+					放射上限を計算すると、\(385\hmu{W/m^2}\)
+				\item 得られた漸近値に近い
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -526,13 +537,25 @@
 %\end{frame}
 
 \begin{frame}
-	\frametitle{まとめ}
+	\frametitle{Ishiwatari \etal (2002) の結論}
 	\begin{itemize}
-		\item 3 次元計算でも放射上限が現れる
-		\item 赤道付近での OLR の上限は約 \(390\hmu{W/m^2}\)
-		\item この上限は Nakajima \etal (1992) で示された対流圏の構造によって与えられる
-			放射上限に対応
-		\item ただし、Ishiwatari \etal (2002) で用いたモデルにはバグが含まれている
+		\item Nakajima \etal (1992) の枠組みを拡張して 3 次元系で数値計算を行った
+		\begin{itemize}
+			\item 3 次元計算でも放射上限が現れる
+			\item 大気が射出できる OLR の上限はおよそ \(400\hmu{W/m^2}\)
+				（太陽定数にして \(1600\hmu{W/m^2}\)）
+			\item 赤道付近での OLR の上限は約 \(390\hmu{W/m^2}\)
+			\item この上限は Nakajima \etal (1992) で示された対流圏の構造によって与えられる
+				放射上限に対応する
+			\item この上限を超えたフラックスが入射すると、大気は熱的に暴走する
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{今後の展望}
+	\begin{itemize}
+		\item 先述の通り、Ishiwatari \etal (2002) で用いたモデルにはバグが含まれている
 			\begin{itemize}
 				\item バグによって計算結果が変わっていそう
 				\item 修士研究ではモデルのバグを修正した計算を行う予定
