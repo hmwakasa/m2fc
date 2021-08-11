@@ -169,12 +169,13 @@
 				\item 1990 年以前に、以下のような暴走温室状態の研究があった
 					\begin{itemize}
 						\item 温度の上昇と水蒸気量の増加には正のフィードバックがあり、
-							海洋が完全に蒸発することが考えられる (Plass, 1961; Gold, 1964)
+							海洋が完全に蒸発することが考えられた (Plass, 1961; Gold, 1964)
 						\item 灰色成層圏モデルでは惑星大気上端での外向き赤外放射
 							(outgoing longwave radiation: OLR) には上限がある
 							(Komabayashi, 1967, 1968; Ingersoll, 1969)
 						\item 灰色大気で、対流圏まで考慮したモデル
-							でも放射上限があらわれる (Kasting, 1988; Abe and Matsui, 1988)
+							でも OLR に上限がある
+							(Kasting, 1988; Abe and Matsui, 1988)
 					\end{itemize}
 			\end{itemize}
 		\end{column}
@@ -182,7 +183,7 @@
 			\centering\small
 			\includegraphics[width=.95\textwidth]{kasting7a.png}\\
 			Kasting (1988) Fig.\ 7a\\
-			精密モデルでの OLR (\(F_{\mathrm{IR}}\)) と\\
+			対流圏モデルでの OLR (\(F_{\mathrm{IR}}\)) と\\
 			地表面温度の関係
 		\end{column}
 	\end{columns}
@@ -194,29 +195,9 @@
 
 \begin{frame}
 	\frametitle{Nakajima \etal (1992) のレビュー}
-	\begin{columns}[T,onlytextwidth]
-		\begin{column}{.55\textwidth}
-			\begin{itemize}
-				\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて
-					計算を行った
-					\begin{itemize}
-						\item 乾燥空気と灰色の水蒸気の 2 成分からなる大気
-							\item 乾燥空気と水蒸気の分子量は同じ
-							\item 対流圏は飽和
-							\item 成層圏は放射平衡
-					\end{itemize}
-				\item OLR に 3 種類の上限があると示した
-					\begin{itemize}
-						\item 乾燥空気の量が大きくなるとあらわれる上限
-							(Komabayashi--Ingersoll Limit)
-						\item 対流圏の構造によって与えられる上限
-						\item 高温の場合の極限
-							（Kastingや Abe and Matsui の上限に対応）
-						\item この 3 つの上限は異なる原因によるとわかった
-					\end{itemize}
-			\end{itemize}
-		\end{column}
-		\begin{column}{.4\textwidth}
+	\begin{itemize}
+		\item Nakajima \etal (1992) は 1 次元放射対流平衡モデルを用いて計算を行った
+		\item 利用したモデル
 			\begin{table}
 				\tiny
 				\begin{tblr}{rl}
@@ -226,18 +207,35 @@
 					成層圏&放射平衡\\
 					対流圏界面&飽和水蒸気\\
 					対流圏&湿潤擬断熱減率\\
+					大気成分&2 成分（水蒸気、乾燥空気）、理想気体、分子量同じ\\
 					放射過程&散乱なし、灰色\\
 					水蒸気の吸収係数&\(\kappa_v=0.01\hmu{m^2/kg}\)\\
 					乾燥空気の吸収係数&\(\kappa_n=0\)\\
-					臨界点&考慮せず\\
 					\hline
 				\end{tblr}
 			\end{table}
+	\end{itemize}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item 結果
+					\begin{itemize}
+						\item OLR には 3 種類の上限がある
+						\item 乾燥空気の量が大きくなるとあらわれる上限\\
+							(Komabayashi--Ingersoll Limit)
+						\item 乾燥空気がある程度あるときにあらわれる上限\\
+							（対流圏の構造による上限）
+						\item 乾燥空気が存在しないときにあらわれる上限\\
+							（Kastingや Abe and Matsui の上限に対応）
+					\end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.38\textwidth}
 			\begin{figure}
 				\scriptsize
-				\includegraphics[width=.9\textwidth]{nf6.png}\\
+				\includegraphics[width=\textwidth]{nf6.png}\\
 				Nakajima \etal (1992) Fig.\ 6; 地表面での乾燥空気の\\
-				分圧 \(p_{n0}\) を変化させた時の地表面温度と OLR の関係
+				分圧 \(p_{n0}\) を変えた時の地表面温度と OLR の関係
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -246,14 +244,21 @@
 \begin{frame}
 	\frametitle{Ishiwatari \etal (2002) の目的}
 	\begin{itemize}
+		\item 1 次元モデルの放射上限は 3 次元ではあらわれない可能性がある
+			\begin{itemize}
+				\item 亜熱帯で乾燥化が進み、大気が光学的に薄くなり
+					そこから放射できる可能性がある
+			\end{itemize}
 		\item 3 次元系でも射出限界が現れるか、現れるならばどうやって決まるのかを確認するのが目的
 		\item Nakajima \etal (1992) の枠組みを踏まえ GCM 計算を行う
 			\begin{itemize}
 				\item 入射するエネルギーフラックス (surface shortwave radiation: SSR) の
 					緯度分布も考慮した
+					\begin{itemize}
+						\item 循環構造を再現した
+					\end{itemize}
 				\item 時間発展計算を行う
 					\begin{itemize}
-						\item 平衡解が安定か検討できる
 						\item 平衡解が存在しない場合の振る舞いを検討できる
 					\end{itemize}
 			\end{itemize}
@@ -262,18 +267,29 @@
 
 \begin{frame}
 	\frametitle{モデル}
-	AGCM5 を使用した。基礎方程式は以下の 3 次元球殻上のプリミティヴ方程式。
+	\begin{itemize}
+		\item 利用したモデル
+			\begin{itemize}
+				\item AGCM5
+			\end{itemize}
+		\item 基礎方程式
+			\begin{itemize}
+				\item 以下の 3 次元球殻上プリミティヴ方程式
+			\end{itemize}
+	\end{itemize}
 	\tiny
 	\begin{gather*}
 		\dv{\zeta}{t}=-\frac{1}{a\cos\varphi}\pdv{}{\lambda}
 		\qty[-(\zeta+f)u-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a\cos\varphi}\pdv{\pi}{\lambda}]
 		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}
-		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-
+		\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
 		-F_\zeta^\mathit{diff},\tag{渦度}\\
 		\dv{D}{t}=\frac{1}{a\cos\varphi}\pdv{}{\lambda}
 		\qty[(\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-x\frac{RT'}{a}\pdv{\pi}{\varphi}]
 		+\frac{1}{a\cos\varphi}\pdv{}{\varphi}
-		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
+		\qty[\qty((\zeta+f)v-\dot\sigma\pdv{u}{\sigma}-
+		\frac{RT'}{a}\pdv{\pi}{\varphi})\cos\varphi]
 		-\nabla^2(\Phi+R\bar T\pi+E)-F_D^\mathit{diff},\tag{発散}\\
 		\dv{\pi}{t}=-\frac{1}{a\cos\varphi}\pdv{u}{\lambda}
 		-\frac{1}{a\cos\varphi}\pdv{}{\varphi}[v\cos\varphi]-\pdv{\dot\sigma}{\sigma},\quad
@@ -303,7 +319,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{モデルに含まれる物理過程}
+	\frametitle{大気成分と物理過程}
 	\begin{itemize}
 		\item 大気成分
 			\begin{itemize}
@@ -325,17 +341,14 @@
 						\item 湿潤対流調節スキーム (Manabe \etal*, 1965)
 							\begin{itemize}
 								\item 上下 2 層で湿潤不安定が起きている場合に適用
-									\begin{itemize}
-										\item 気温減率が湿潤断熱減率を超える場合
-										\item 飽和か過飽和になっている場合
-									\end{itemize}
 								\item 気温減率を湿潤断熱減率に変更する
 							\end{itemize}
 					\end{itemize}
 				\item 凝結過程
 				\item 放射過程 (Nakajima \etal*, 1992)
 					\begin{itemize}
-						\item 水蒸気のみが長波放射を吸収し、灰色であるとする
+						\item 水蒸気のみが長波放射を吸収し、
+							吸収係数は一定である
 					\end{itemize}
 			\end{itemize}
 		\end{column}
@@ -345,8 +358,9 @@
 				\item 地表面フラックス (Louis, 1979)
 				\item 強い人工散逸
 					\begin{itemize}
+						\item レイリー散逸、ニュートン冷却、鉛直フィルターを導入した
 						\item 試計算をしたところ、内部重力波が増幅し、計算不安定が起きた
-						\item 内部重力波に対して、強い人工的散逸を導入した
+							ので導入した
 						\item ハドレー循環や傾圧不安定などの対流圏の大気循環の基本的な
 							構造は表現されているので、大きな影響はないとした
 					\end{itemize}
@@ -356,11 +370,15 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{モデル設定}
+	\frametitle{実験設定}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.5\textwidth}
 			\begin{itemize}
 				\item 地表面で熱バランスが成り立ち、湿り度は 1 とする（すべて海で覆われている）
+				\item 初期条件
+					\begin{itemize}
+						\item 静止、等温 (\(280\hmu{K}\))、比湿一様 (\(10^{-3}\))
+					\end{itemize}
 				\item 分解能
 					\begin{itemize}
 						\item 水平方向はスペクトル法で計算
@@ -376,7 +394,6 @@
 					\begin{itemize}
 						\item 実験した太陽定数は表の 8 つ。実験名の S の後ろが太陽定数
 						\item 実験 S1380 が現在の地球に相当
-						\item 全球平均 SSR は \(S\) の \(1/4\)
 					\end{itemize}
 					\begin{table}
 						\scriptsize
@@ -433,53 +450,43 @@
 
 \begin{frame}
 	\frametitle{熱的暴走状態の発生}
-	{\scriptsize
-		AGCM5 にバグがあったため、以下に示す結果のうち、
-		大気の状態については注意して見ていただきたい。
+	{\footnotesize
+		AGCM5 にバグがあったため、あとに出す大気の循環構造については注意して見ていただきたい。
 	}
 	\begin{itemize}
-		\item 太陽定数を変化させて実験を行った
-	\end{itemize}
-	\begin{columns}[b,onlytextwidth]
-		\begin{column}{.3\textwidth}
-			\centering\scriptsize
-			\includegraphics[width=.7\textwidth]{./fig/ISR-OLR.kps-crop.pdf}\\
-			Ishiwatari \etal (2002) Fig.~3\\
-			1000 日での SSR と OLR の関係\\
-			（S1600 では 2000 日）\\
-			◯では熱的平衡、×印では熱的暴走
-		\end{column}
-		\begin{column}{.7\textwidth}
+		\item いくつかの実験で、全球平均の地表面温度と OLR の時間変化を見る
 			\begin{figure}
 				\scriptsize
-				\includegraphics[width=.48\textwidth]{./fig/Tg-seqs.kps-crop.pdf}
-				\includegraphics[width=.48\textwidth]{./fig/OLR-seqs.kps-crop.pdf}\\
+				\includegraphics[width=.35\textwidth]{./fig/Tg-seqs.kps-crop.pdf}
+				\includegraphics[width=.35\textwidth]{./fig/OLR-seqs.kps-crop.pdf}\\
 				Ishiwatari \etal (2002) Fig.~2\\
-				全球平均 OLR (\hmu*{W/m^2}) と全球平均表面温度 (\hmu*{K}) の時間変化;\\
+				全球平均 OLR (\hmu*{W/m^2}) と全球平均表面温度 (\hmu*{K}) の時間変化;
 				S1200, S1380, S1570, S1800 の結果
 			\end{figure}
-		\end{column}
-	\end{columns}
-	\begin{itemize}
-		\item \(S>1600\hmu{W/m^2}\) では平衡状態にならない
+	\end{itemize}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{.6\textwidth}
 			\begin{itemize}
 				\item \(S\leq1570\hmu{W/m^2}\) の場合、平衡状態になる
 				\item \(S=1800\hmu{W/m^2}\) の場合、熱的暴走する
 					\begin{itemize}
 						\item OLR は減少し続け、表面温度は増加し続ける
 					\end{itemize}
+				\item \(S>1600\hmu{W/m^2}\) では平衡状態にならない
 			\end{itemize}
-	\end{itemize}
-	\begin{columns}[T,onlytextwidth]
-		\begin{column}{.7\textwidth}
 		\end{column}
-		\begin{column}{.3\textwidth}
+		\begin{column}{.4\textwidth}
+			\centering\scriptsize
+			\includegraphics[width=.6\textwidth]{./fig/ISR-OLR.kps-crop.pdf}\\
+			Ishiwatari \etal (2002) Fig.~3; 1000 日での SSR と\\
+			OLR の関係（S1600 では 2000 日）\\
+			◯では熱的平衡、×印では熱的暴走
 		\end{column}
 	\end{columns}
 \end{frame}
 
 \begin{frame}
-	\frametitle{OLR の子午面構造}
+	\frametitle{OLR と表面温度の南北分布}
 	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.55\textwidth}
 			\begin{itemize}
@@ -490,8 +497,10 @@
 					\end{itemize}
 				\item 東西平均温度も OLR と同様に平坦化の傾向
 					\begin{itemize}
-						\item 1 次元的な場になる
+						\item 温度差が減る
+						\item 1 次元的に扱えるかもしれない
 					\end{itemize}
+				\item 3 次元モデルでの上限値は \(400\hmu{W/m^2}\) 弱といえる
 				\item これらが鉛直 1 次元モデルのどの上限に対応するか考察する
 			\end{itemize}
 		\end{column}
@@ -508,15 +517,20 @@
 
 \begin{frame}
 	\frametitle{1 次元系との比較---Komabayashi--Ingersoll Limit}
-	\begin{center}
-		\includegraphics[width=.9\textwidth]{zu-crop.pdf}\\
-			\scriptsize Ishiwatari \etal (2002) Fig.\ 9\quad 実験 S1570 の子午面構造\\
-			質量流線関数と相対湿度
-	\end{center}
 	\begin{itemize}
+		\item Komabayashi--Ingersoll Limit (\(385\hmu{W/m^2}\)) は圏界面が飽和しているときの上限
+			\begin{itemize}
+				\item 3 次元系と比較するためには、圏界面の相対湿度を調べる必要がある
+			\end{itemize}
 		\item 実験 S1570 では、圏界面の相対湿度は \(50\hmu{\%}\) 程度
 			\textcolor[cmyk]{1,1,0,0}{（青線）}
-		\item この場合の Komabayashi--Ingersoll limit を計算すると約 \(450\hmu{W/m^2}\) になる
+			\begin{center}
+				\includegraphics[width=.7\textwidth]{zu-ao.pdf}\\
+					\scriptsize Ishiwatari \etal (2002) Fig.\ 9\quad 実験 S1570 の子午面構造\\
+					質量流線関数と相対湿度
+			\end{center}
+		\item 相対湿度 \(50\hmu{\%}\) での
+			Komabayashi--Ingersoll limit を計算すると約 \(450\hmu{W/m^2}\) になる
 		\item 得られた上限値より大きい
 		\item Komabayashi--Ingersoll Limit とは対応していないと考えられる
 	\end{itemize}
@@ -524,13 +538,23 @@
 
 \begin{frame}
 	\frametitle{1 次元系との比較---対流圏の構造による上限}
-	\begin{columns}[b]
+	\begin{itemize}
+		\item 実験 S1570 では、赤道域対流圏相対湿度は \(60\hmu{\%}\) 程度
+			\textcolor[cmyk]{0,1,1,0}{（赤線）}
+			\begin{center}
+				\includegraphics[width=.7\textwidth]{zu-aka.pdf}\\
+					\scriptsize Ishiwatari \etal (2002) Fig.\ 9\quad 実験 S1570 の子午面構造\\
+					質量流線関数と相対湿度
+			\end{center}
+	\end{itemize}
+	\begin{columns}[T,onlytextwidth]
 		\begin{column}{.48\textwidth}
-			\begin{figure}
-				\includegraphics[width=.9\textwidth]{zu-crop.pdf}\\
-				\scriptsize Ishiwatari \etal (2002) Fig.\ 9\\
-				実験 S1570 の子午面構造; 質量流線関数と相対湿度
-			\end{figure}
+			\begin{itemize}
+				\item 大気の相対湿度を \(60\hmu{\%}\) に固定して、1 次元放射対流平衡モデルで
+					放射上限を計算すると、\(385\hmu{W/m^2}\)
+				\item 得られた上限値に近い
+				\item Nakajima \etal (1992) が得た上限に対応しているといえる
+			\end{itemize}
 		\end{column}
 		\begin{column}{.5\textwidth}
 			\begin{figure}
@@ -543,20 +567,6 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
-	\begin{itemize}
-		\item Nakajima \etal (1992) が得た放射上限との対応
-			\begin{itemize}
-				\item 実験 S1570 での赤道域対流圏相対湿度は \(60\hmu{\%}\) 程度
-					\textcolor[cmyk]{0,1,1,0}{（赤線）}
-				\item 大気の相対湿度を \(60\hmu{\%}\) に固定して、1 次元放射対流平衡モデルで
-					放射上限を計算すると、\(385\hmu{W/m^2}\)
-				\item 得られた漸近値に近い
-				\item 1 次元系で相対湿度を変化させて放射上限を求めてみる
-				\item その結果は、3 次元計算と若干のずれはあるものの、対応を示しているように見える
-				\item 前頁の結果からも、3 次元計算で得られた漸近値は、Nakajima \etal (1992)
-					が得た放射上限に対応していると言える
-			\end{itemize}
-	\end{itemize}
 \end{frame}
 
 %\begin{frame}
@@ -575,6 +585,9 @@
 		\item Nakajima \etal (1992) の枠組みを拡張して 3 次元系で数値計算を行った
 		\begin{itemize}
 			\item 3 次元計算でも放射上限が現れる
+				\begin{itemize}
+					\item 亜熱帯の乾燥が進んでも暴走は起こる
+				\end{itemize}
 			\item 大気が射出できる OLR の上限はおよそ \(400\hmu{W/m^2}\)
 				（太陽定数にして \(1600\hmu{W/m^2}\)）
 			\item 赤道付近での OLR の上限は約 \(390\hmu{W/m^2}\)
@@ -586,15 +599,27 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{今後の展望}
+	\frametitle{Ishiwatari \etal (2002) に含まれるバグ}
 	\begin{itemize}
-		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal (2021))
+		\item この計算に用いた GCM (AGCM) にはバグが含まれていた (Ishiwatari \etal*, 2021)
 			\begin{itemize}
 				\item 湿潤対流調節スキームが動作する条件が逆になっていた
 				\item 鉛直成層が湿潤断熱減率よりも安定しているときに対流調節が働くようになっていた
 				\item バグによって計算結果が変わっていそう
 			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{今後の展望}
+	\begin{itemize}
 		\item 修士研究ではモデルのバグを修正した計算を行う予定
+		\item バグを修正し、大気の循環構造に関して再検討をする
+			\begin{itemize}
+				\item Ishiwatari \etal (2002) では、暴走が起きないほど亜熱帯の
+					乾燥が進まないのは、潜熱輸送が効いているとしているが、
+					それが正しいか調べる必要がある
+			\end{itemize}
 	\end{itemize}
 \end{frame}
 
